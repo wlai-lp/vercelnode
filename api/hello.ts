@@ -39,6 +39,7 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
       </div>
       
       <button hx-post="/api/login" hx-swap="outerHTML" hx-target="#login-form"
+      hx-include="#siteid, #username, #password"
       onClick="Toastify({
         text: 'This is a toast',
         className: 'info',
