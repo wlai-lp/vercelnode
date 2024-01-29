@@ -3,6 +3,8 @@ module.exports = async (req, res) => {
   const userAgent = req.headers['user-agent'];
   console.log("hello " + userAgent);
 
+  console.log("api key is " + process.env.API_KEY);
+
   let config = {
     method: "post",
     maxBodyLength: Infinity,
