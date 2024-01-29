@@ -1,7 +1,7 @@
 module.exports = async (req, res) => {
   const axios = require("axios");
-
-  console.log("hello " + req);
+  const userAgent = req.headers['user-agent'];
+  console.log("hello " + userAgent);
 
   let config = {
     method: "post",
