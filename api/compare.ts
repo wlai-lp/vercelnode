@@ -19,12 +19,12 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
 
 <body class="flex items-center justify-center h-screen bg-gray-200">
   <div class="bg-white p-8 rounded shadow-md w-96">
-    <h2 class="text-2xl font-semibold mb-6">LP Account</h2>
+    <h2 class="text-2xl font-semibold mb-6">Source Account</h2>
     <form action="#" method="POST">
     <div id="login-form"></div>
       <div class="mb-4">
         <label for="LP SiteId" class="block text-sm font-medium text-gray-600">LP SiteId</label>
-        <input type="text" id="siteid" name="siteid"
+        <input type="text" id="siteid" name="LP SiteId"
                class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
       </div>
       <div class="mb-4">
@@ -38,7 +38,7 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
                class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
       </div>
       
-      <button hx-post="/api/login" hx-swap="outerHTML"
+      <button hx-post="/api/login" hx-swap="outerHTML" hx-target="#login-form"
       hx-include="#siteid, #username, #password"
       onClick="Toastify({
         text: 'This is a toast',
@@ -48,7 +48,7 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
         }
       }).showToast();"
               class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-        Login to Source Site
+        Login htmx
       </button>
     </form>
   </div>

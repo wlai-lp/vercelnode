@@ -36,11 +36,11 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   }
 
 
-  // if we have tokent then render the rest
+  // if we have token then render the button for source loging
   const htmlContent = `
-      <button hx-post="/destlogin" hx-swap="outerHTML"
+      <button hx-post="/api/logindest" hx-swap="outerHTML"
               class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-        Login htmx destination
+              Login to Destination Site
       </button>
   `;
   // todo: generate a session id
