@@ -48,7 +48,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   // todo: generate a session id
   res.setHeader('Content-Type', 'text/html');
   //   res.setHeader('Set-Cookie', `LPcloneSession=${sessionId}`);
-  res.setHeader('Set-Cookie', `LPdesttoken=${token}`);
+  res.setHeader('Set-Cookie', [
+    `LPdesttoken=${token}; Max-Age=3600`,
+    `LPdestiteid=${req.body.siteid}; Max-Age=3600`,
+  ]);
 
   res.status(200).send(htmlContent);
 
