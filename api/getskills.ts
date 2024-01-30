@@ -33,6 +33,32 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     // Parse the raw cookie header using the cookie package
     // console.log(cookies['LPsourcetoken']);
 
+  const skillsTableTemplate = `
+  <div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>        
+      </tr>
+    </thead>
+    <tbody>
+      {rows}
+    </tbody>
+  </table>
+</div>  
+  `;
+
+  const skillTableTRTemplate = `
+  <tr class="hover">
+        <th>{id}</th>
+        <td>{name}</td>
+        <td>{description}</td>
+      </tr>
+  `;
+
   const skillCardTemplate = `
   <!-- Small Card -->
 <div class="bg-white p-6 my-4 rounded-lg shadow-md">
@@ -50,25 +76,28 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     url: `https://va.ac.liveperson.net/api/account/${siteId}/configuration/le-users/skills?v=2.0&source=ccuiUm&select=$all`,
     headers: { 
         'authorization': `Bearer ${token}`, 
-        'content-type': 'application/json; charset=utf-8', 
-        'Cookie': 'JSESSIONID=B640FAC3AA64EF4DB6215710DAE0857A'
+        'content-type': 'application/json; charset=utf-8'        
       }
   };
 
-  let htmlContent = "";
+  let htmlContent = "no content";
   try {
     console.log('start get skills request');
     const response = await axios.request(config);
     console.log('done get skills request');
     const skills: SkillType[] = response.data.map((data) => ({
+        id: data.id,
         name: data.name,
         description: data.description
     }));
     console.log(skills.length);
     const skillCards: string[] = skills.map((skill) => {
-        return skillCardTemplate.replace("{name}", skill.name).replace("{description}", skill.description);
+        // return skillCardTemplate.replace("{name}", skill.name).replace("{description}", skill.description).replace("{id}", skill.id.toString());
+        return skillTableTRTemplate.replace("{name}", skill.name).replace("{description}", skill.description).replace("{id}", skill.id.toString());
     });
-    htmlContent = skillCards.join(" ");
+    const rows = skillCards.join(" ");
+
+    htmlContent = skillsTableTemplate.replace("{rows}", rows);
     // console.log(JSON.stringify(response.data));
     res.setHeader('Content-Type', 'text/html');
 

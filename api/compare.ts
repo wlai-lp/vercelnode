@@ -16,22 +16,35 @@ export default (req: VercelRequest, res: VercelResponse) => {
 
   const htmlContentTemplate = `
   <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+    	plugins: [require("daisyui")],
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <title>Compare 2 LP Sites</title>
-  </head>
-  <body class="bg-gray-100">
+</head>
+
+  <body>
     <div class="grid grid-cols-2 gap-4 p-8">
       <!-- Panel 1 -->
       <div class="bg-white p-4">
