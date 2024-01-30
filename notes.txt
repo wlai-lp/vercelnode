@@ -1,0 +1,8 @@
+# VercelRequest object
+
+export default async (req: VercelRequest, res: VercelResponse) => {
+  try {
+    // Access request parameters
+    const { query, body, headers, method } = req;
+
+

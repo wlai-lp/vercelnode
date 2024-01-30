@@ -6,6 +6,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   // this is the source siteid
   //siteid, username, password
   console.log(req.body.siteid);
+  console.log("url host = " + req.headers.host);
   console.log(JSON.stringify(req.body));
   const data = JSON.stringify(req.body);
 
@@ -36,7 +37,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   // if we have token then render the button for source loging
   const htmlContent = `
-      <button hx-post="/api/logindest" hx-swap="outerHTML"
+      <button hx-post="/api/logindest" hx-swap="outerHTML" 
               class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
               Login to Destination Site
       </button>

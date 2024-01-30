@@ -42,11 +42,16 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   const htmlContent = `
       <button hx-post="/destlogin" hx-swap="outerHTML"
               class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-        Login htmx one
+        Login destination done, redirecting
       </button>
   `;
   // todo: generate a session id
+  // Access request parameters
+  const { query, body, headers, method } = req;
+  query.encrypted
+  const compareUrl = `${req.query.encrypted ? 'https' : 'http'}://${req.headers.host}/api/compare`;
   res.setHeader('Content-Type', 'text/html');
+  res.setHeader('HX-Redirect', compareUrl);
   //   res.setHeader('Set-Cookie', `LPcloneSession=${sessionId}`);
   res.setHeader('Set-Cookie', [
     `LPdesttoken=${token}; Max-Age=3600`,
