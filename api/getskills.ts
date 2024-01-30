@@ -53,7 +53,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   const skillTableTRTemplate = `
   <tr class="hover">
-        <th>{id}</th>
+        <th hx-get="/copyskill?id={id}" hx-on:htmx:before-request="alert('Copy skill id {id}!')">{id}</th>
         <td>{name}</td>
         <td>{description}</td>
       </tr>
@@ -93,7 +93,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     console.log(skills.length);
     const skillCards: string[] = skills.map((skill) => {
         // return skillCardTemplate.replace("{name}", skill.name).replace("{description}", skill.description).replace("{id}", skill.id.toString());
-        return skillTableTRTemplate.replace("{name}", skill.name).replace("{description}", skill.description).replace("{id}", skill.id.toString());
+        return skillTableTRTemplate.replace("{name}", skill.name).replace("{description}", skill.description).replaceAll("{id}", skill.id.toString());
     });
     const rows = skillCards.join(" ");
 
