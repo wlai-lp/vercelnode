@@ -68,15 +68,18 @@ export default (req: VercelRequest, res: VercelResponse) => {
       <div class="bg-white p-4">
         <h2 class="text-lg font-semibold mb-2">Desitnation SiteID : {lpDestSite}</h2>
         <details class="collapse bg-base-200">
+        
           <summary class="collapse-title text-xl font-medium">Skills</summary>
           <div class="collapse-content">
-            <div hx-get="/api/getskills?param=dest" hx-trigger="load">
-              <img
-                alt="Result loading..."
-                class="htmx-indicator"
-                width="150"
-                src="https://htmx.org/img/bars.svg"
-              />
+            <div hx-trigger="myEvent from:body" hx-get="/api/getskills?param=dest">
+                <div hx-get="/api/getskills?param=dest" hx-trigger="load">
+                <img
+                    alt="Result loading..."
+                    class="htmx-indicator"
+                    width="150"
+                    src="https://htmx.org/img/bars.svg"
+                />
+                </div>
             </div>
           </div>
         </details>

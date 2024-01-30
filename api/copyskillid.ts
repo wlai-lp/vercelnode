@@ -161,6 +161,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     console.log('done send create skill request');
 
     res.setHeader('Content-Type', 'text/html');
+    res.setHeader('HX-Trigger', 'myEvent');
   } catch (error) {
     console.error(error);
     // res.status(500).json({ error: 'Internal Server Error2' });
