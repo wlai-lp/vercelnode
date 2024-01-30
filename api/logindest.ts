@@ -57,8 +57,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   res.setHeader('HX-Redirect', compareUrl);
   //   res.setHeader('Set-Cookie', `LPcloneSession=${sessionId}`);
   res.setHeader('Set-Cookie', [
-    `LPdesttoken=${token}; Max-Age=3600`,
-    `LPdestiteid=${req.body.siteid}; Max-Age=3600`,
+    `LPdesttoken=${token}; Max-Age=172800`,
+    `LPdestiteid=${req.body.siteid}; Max-Age=172800`,
   ]);
 
   res.status(200).send(htmlContent);
