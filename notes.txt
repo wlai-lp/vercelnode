@@ -5,4 +5,20 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     // Access request parameters
     const { query, body, headers, method } = req;
 
+# set cookies
+res.setHeader('Set-Cookie', [
+    `LPsoucetoken=${token}; Max-Age=3600`,
+    `LPsoucesiteid=${req.body.siteid}; Max-Age=3600`,
+  ]);
 
+# read cookies
+console.log(req.headers.cookie);
+
+npm install cookie
+import { parse } from 'cookie'
+ // console.log(req.headers.cookie);
+    const rawCookieHeader = req.headers.cookie || '';
+
+    // Parse the raw cookie header using the cookie package
+    const cookies = parse(rawCookieHeader);
+    console.log(cookies['LPsourcetoken']);

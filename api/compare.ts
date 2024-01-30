@@ -1,6 +1,17 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { parse } from 'cookie'
 
-export default ({ query }: VercelRequest, res: VercelResponse) => {
+export default (req: VercelRequest, res: VercelResponse) => {
+
+    // const lpSourceSite = req.cookies['LPsoucesiteid'];
+    // const lpDestSite = req.cookies['LPdestiteid'];
+
+    // console.log(req.headers.cookie);
+    const rawCookieHeader = req.headers.cookie || '';
+
+    // Parse the raw cookie header using the cookie package
+    const cookies = parse(rawCookieHeader);
+    console.log(cookies['LPsourcetoken']);
 
   const htmlContent = `
   <!DOCTYPE html>
@@ -19,7 +30,7 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
       <!-- Left Panel -->
       <div class="flex-none w-1/2 bg-gray-200 p-4">
         <!-- Content for the left panel -->
-        <h1 class="text-xl font-bold mb-4">Left Panel</h1>
+        <h1 class="text-xl font-bold mb-4">SourceId</h1>
         <p>This is the left panel content.</p>
       </div>
   

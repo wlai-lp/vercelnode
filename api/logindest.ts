@@ -11,6 +11,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   // this is the source siteid
   //siteid, username, password
   console.log(req.body.username);
+  
+  // const lpSourceSite = req.cookies['LPsoucesiteid'];
+  // console.log(lpSourceSite);
 
   // login and get auth token
   const config = {
