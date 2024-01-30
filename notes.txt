@@ -22,3 +22,10 @@ import { parse } from 'cookie'
     // Parse the raw cookie header using the cookie package
     const cookies = parse(rawCookieHeader);
     console.log(cookies['LPsourcetoken']);
+
+# String interpolation
+const name = "John";
+const age = 30;
+
+const messageTemplate = "Hello, my name is {name} and I am {age} years old.";
+const message = messageTemplate.replace("{name}", name).replace("{age}", age);

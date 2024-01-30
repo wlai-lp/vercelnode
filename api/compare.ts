@@ -3,17 +3,18 @@ import { parse } from 'cookie'
 
 export default (req: VercelRequest, res: VercelResponse) => {
 
-    // const lpSourceSite = req.cookies['LPsoucesiteid'];
-    // const lpDestSite = req.cookies['LPdestiteid'];
-
     // console.log(req.headers.cookie);
     const rawCookieHeader = req.headers.cookie || '';
 
     // Parse the raw cookie header using the cookie package
     const cookies = parse(rawCookieHeader);
     console.log(cookies['LPsourcetoken']);
+    const lpSourceSite = cookies['LPsourcesiteid'];
+    const lpDestSite = cookies['LPdestiteid'];
 
-  const htmlContent = `
+    // TODO: error handling site cookies param
+
+  const htmlContentTemplate = `
   <html>
   <head>
     <meta charset="UTF-8" />
@@ -34,7 +35,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
     <div class="grid grid-cols-2 gap-4 p-8">
       <!-- Panel 1 -->
       <div class="bg-white p-4">
-        <h2 class="text-lg font-semibold mb-2">Source SiteID : </h2>
+        <h2 class="text-lg font-semibold mb-2">Source SiteID : {lpSourceSite}</h2>
         <details class="collapse bg-base-200">
           <summary class="collapse-title text-xl font-medium">Skills</summary>
           <div class="collapse-content">
@@ -52,7 +53,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
 
       <!-- Panel 2 -->
       <div class="bg-white p-4">
-        <h2 class="text-lg font-semibold mb-2">Desitnation SiteID : </h2>
+        <h2 class="text-lg font-semibold mb-2">Desitnation SiteID : {lpDestSite}</h2>
         <details class="collapse bg-base-200">
           <summary class="collapse-title text-xl font-medium">Skills</summary>
           <div class="collapse-content">
@@ -73,6 +74,9 @@ export default (req: VercelRequest, res: VercelResponse) => {
 
   
   `;  
+
+  // replace siteids
+  const htmlContent = htmlContentTemplate.replace("{lpSourceSite}", lpSourceSite).replace("{lpDestSite}", lpDestSite);
 
   res.status(200).send(htmlContent);
 
