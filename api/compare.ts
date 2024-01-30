@@ -20,7 +20,8 @@ export default (req: VercelRequest, res: VercelResponse) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Centered Two Panels</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <title>Compare 2 LP Sites</title>
   </head>
   <body class="flex h-screen">
   
@@ -32,8 +33,8 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <!-- Content for the left panel -->
         <h1 class="text-xl font-bold mb-4">Source Site Id</h1>
         <p>This is the left panel content.</p>
-        <div hx-get="/api/" hx-trigger="load">
-            <img  alt="Result loading..." class="htmx-indicator" width="150" src="/img/bars.svg"/>
+        <div hx-get="/api/getskills?param=source" hx-trigger="load">
+            <img  alt="Result loading..." class="htmx-indicator" width="150" src="https://htmx.org/img/bars.svg"/>
         </div>
       </div>
   
@@ -42,6 +43,9 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <!-- Content for the right panel -->
         <h1 class="text-xl font-bold mb-4">Destination Site ID</h1>
         <p>This is the right panel content.</p>
+        <div hx-get="/api/getskills?param=dest" hx-trigger="load">
+            <img  alt="Result loading..." class="htmx-indicator" width="150" src="https://htmx.org/img/bars.svg"/>
+        </div>
       </div>
   
     </div>
