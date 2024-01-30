@@ -20,13 +20,13 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     console.log(`Get skills from ${req.query.param}`);
     // const lpSourceSite = req.cookies['LPsoucesiteid'];
-    // const lpDestSite = req.cookies['LPdestiteid'];
+    // const lpDestSite = req.cookies['LPdestsiteid'];
 
     // console.log(req.headers.cookie);
     const rawCookieHeader = req.headers.cookie || '';
 
     const cookies = parse(rawCookieHeader);
-    const siteId = req.query.param == "source" ? cookies['LPsourcesiteid'] : cookies['LPdestiteid']
+    const siteId = req.query.param == "source" ? cookies['LPsourcesiteid'] : cookies['LPdestsiteid']
     const token = req.query.param == "source" ? cookies['LPsourcetoken'] : cookies['LPdesttoken']
     console.log(`site = ${siteId} and token ${token}`);
 
@@ -53,7 +53,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   const skillTableTRTemplate = `
   <tr class="hover">
-        <th hx-get="/copyskill?id={id}" hx-on:htmx:before-request="alert('Copy skill id {id}!')">{id}</th>
+        <th hx-get="/api/copyskillid?id={id}" hx-swap="none" hx-on:htmx:before-request="alert('Copy skill id {id}!')">{id}</th>
         <td>{name}</td>
         <td>{description}</td>
       </tr>

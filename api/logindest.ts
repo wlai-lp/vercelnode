@@ -51,7 +51,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   //   res.setHeader('Set-Cookie', `LPcloneSession=${sessionId}`);
   res.setHeader('Set-Cookie', [
     `LPdesttoken=${token}; Max-Age=172800`,
-    `LPdestiteid=${req.body.siteid}; Max-Age=172800`,
+    `LPdestsiteid=${req.body.siteid}; Max-Age=172800`,
   ]);
 
   res.status(200).send(htmlContent);

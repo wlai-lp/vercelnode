@@ -10,7 +10,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
     const cookies = parse(rawCookieHeader);
     console.log(cookies['LPsourcetoken']);
     const lpSourceSite = cookies['LPsourcesiteid'];
-    const lpDestSite = cookies['LPdestiteid'];
+    const lpDestSite = cookies['LPdestsiteid'];
 
     // TODO: error handling site cookies param
 
