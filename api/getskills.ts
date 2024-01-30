@@ -27,7 +27,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     const cookies = parse(rawCookieHeader);
     const siteId = req.query.param == "source" ? cookies['LPsourcesiteid'] : cookies['LPdestiteid']
-    const token = req.query.param == "dest" ? cookies['LPsourcetoken'] : cookies['LPsourcetoken']
+    const token = req.query.param == "source" ? cookies['LPsourcetoken'] : cookies['LPdesttoken']
     console.log(`site = ${siteId} and token ${token}`);
 
     // Parse the raw cookie header using the cookie package
