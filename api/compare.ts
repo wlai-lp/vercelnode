@@ -14,44 +14,63 @@ export default (req: VercelRequest, res: VercelResponse) => {
     console.log(cookies['LPsourcetoken']);
 
   const htmlContent = `
-  <!DOCTYPE html>
-  <html lang="en">
+  <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <title>Compare 2 LP Sites</title>
   </head>
-  <body class="flex h-screen">
-  
-    <!-- Container for Centering -->
-    <div class="flex mx-auto">
-  
-      <!-- Left Panel -->
-      <div class="flex-none w-1/2 bg-gray-200 p-4">
-        <!-- Content for the left panel -->
-        <h1 class="text-xl font-bold mb-4">Source Site Id</h1>
-        <p>This is the left panel content.</p>
-        <div hx-get="/api/getskills?param=source" hx-trigger="load">
-            <img  alt="Result loading..." class="htmx-indicator" width="150" src="https://htmx.org/img/bars.svg"/>
-        </div>
+  <body class="bg-gray-100">
+    <div class="grid grid-cols-2 gap-4 p-8">
+      <!-- Panel 1 -->
+      <div class="bg-white p-4">
+        <h2 class="text-lg font-semibold mb-2">Source SiteID : </h2>
+        <details class="collapse bg-base-200">
+          <summary class="collapse-title text-xl font-medium">Skills</summary>
+          <div class="collapse-content">
+            <div hx-get="/api/getskills?param=source" hx-trigger="load">
+              <img
+                alt="Result loading..."
+                class="htmx-indicator"
+                width="150"
+                src="https://htmx.org/img/bars.svg"
+              />
+            </div>
+          </div>
+        </details>
       </div>
-  
-      <!-- Right Panel -->
-      <div class="flex-grow bg-gray-300 p-4">
-        <!-- Content for the right panel -->
-        <h1 class="text-xl font-bold mb-4">Destination Site ID</h1>
-        <p>This is the right panel content.</p>
-        <div hx-get="/api/getskills?param=dest" hx-trigger="load">
-            <img  alt="Result loading..." class="htmx-indicator" width="150" src="https://htmx.org/img/bars.svg"/>
-        </div>
+
+      <!-- Panel 2 -->
+      <div class="bg-white p-4">
+        <h2 class="text-lg font-semibold mb-2">Desitnation SiteID : </h2>
+        <details class="collapse bg-base-200">
+          <summary class="collapse-title text-xl font-medium">Skills</summary>
+          <div class="collapse-content">
+            <div hx-get="/api/getskills?param=dest" hx-trigger="load">
+              <img
+                alt="Result loading..."
+                class="htmx-indicator"
+                width="150"
+                src="https://htmx.org/img/bars.svg"
+              />
+            </div>
+          </div>
+        </details>
       </div>
-  
     </div>
-  
   </body>
-  </html>
+</html>
+
   
   `;  
 

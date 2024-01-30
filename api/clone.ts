@@ -11,6 +11,7 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LP Account Clone</title>
   <!-- Include Tailwind CSS styles -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
