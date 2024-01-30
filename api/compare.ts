@@ -30,14 +30,17 @@ export default (req: VercelRequest, res: VercelResponse) => {
       <!-- Left Panel -->
       <div class="flex-none w-1/2 bg-gray-200 p-4">
         <!-- Content for the left panel -->
-        <h1 class="text-xl font-bold mb-4">SourceId</h1>
+        <h1 class="text-xl font-bold mb-4">Source Site Id</h1>
         <p>This is the left panel content.</p>
+        <div hx-get="/api/" hx-trigger="load">
+            <img  alt="Result loading..." class="htmx-indicator" width="150" src="/img/bars.svg"/>
+        </div>
       </div>
   
       <!-- Right Panel -->
       <div class="flex-grow bg-gray-300 p-4">
         <!-- Content for the right panel -->
-        <h1 class="text-xl font-bold mb-4">Right Panel</h1>
+        <h1 class="text-xl font-bold mb-4">Destination Site ID</h1>
         <p>This is the right panel content.</p>
       </div>
   
