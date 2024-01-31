@@ -52,7 +52,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <details class="collapse bg-base-200">
           <summary class="collapse-title text-xl font-medium">Skills</summary>
           <div class="collapse-content">
-            <div hx-get="/api/getskills?param=source" hx-trigger="load">
+            <div hx-get="/api/skill/getskills?param=source" hx-trigger="load">
               <img
                 alt="Result loading..."
                 class="htmx-indicator"
@@ -71,8 +71,8 @@ export default (req: VercelRequest, res: VercelResponse) => {
         
           <summary class="collapse-title text-xl font-medium">Skills</summary>
           <div class="collapse-content">
-            <div hx-trigger="myEvent from:body" hx-get="/api/getskills?param=dest">
-                <div hx-get="/api/getskills?param=dest" hx-trigger="load">
+            <div hx-trigger="myEvent from:body" hx-get="/api/skill/getskills?param=dest">
+                <div hx-get="/api/skill/getskills?param=dest" hx-trigger="load">
                 <img
                     alt="Result loading..."
                     class="htmx-indicator"

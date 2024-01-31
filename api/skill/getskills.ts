@@ -53,7 +53,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   const skillTableTRTemplate = `
   <tr class="hover">
-        <th hx-get="/api/copyskillid?id={id}" hx-swap="none" hx-on:htmx:before-request="alert('Copy skill id {id}!')">{id}</th>
+        <th hx-get="/api/skill/copyskillid?id={id}" hx-swap="none" hx-on:htmx:before-request="alert('Copy skill id {id}!')">{id}</th>
         <td>{name}</td>
         <td>{description}</td>
       </tr>

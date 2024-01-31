@@ -61,42 +61,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     `copy skill ${skillId} from site ${siteId} and use token ${token}`,
   );
 
-  const skillsTableTemplate = `
-  <div class="overflow-x-auto">
-  <table class="table">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>        
-      </tr>
-    </thead>
-    <tbody>
-      {rows}
-    </tbody>
-  </table>
-</div>  
-  `;
-
-  const skillTableTRTemplate = `
-  <tr class="hover">
-        <th hx-get="/copyskill?id={id}" hx-on:htmx:before-request="alert('Copy skill id {id}!')">{id}</th>
-        <td>{name}</td> 
-        <td>{description}</td>
-      </tr>
-  `;
-
-  const skillCardTemplate = `
-  <!-- Small Card -->
-<div class="bg-white p-6 my-4 rounded-lg shadow-md">
-  <!-- Card Content -->
-  <h2 class="text-lg font-semibold mb-2">{name}</h2>
-  <p class="text-gray-600 text-sm">{description}</p>
-</div>
-  
-  `;
-
   // get skill by id
   const config = {
     method: 'get',
