@@ -15,7 +15,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
     // TODO: error handling site cookies param
 
   const htmlContentTemplate = `
-  <html>
+  <html data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

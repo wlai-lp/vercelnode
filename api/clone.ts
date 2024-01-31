@@ -4,7 +4,7 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
 
   const htmlContent = `
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="light">
 
 <head>
   <meta charset="UTF-8">
