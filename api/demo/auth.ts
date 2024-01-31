@@ -23,10 +23,17 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
             console.log("hi");
             await window.Clerk.load();
             window.Clerk.openSignIn();
+            const el = document.getElementById("user-button");
+            window.Clerk.mountUserButton(el);
         }
     </script>
   </head>
   <body>
+  <header>
+        <h1>LP Account Cloning Tool</h1>
+ 
+        <div id="user-button"></div>
+    </header>
     <SignIn />
     i have a signin button
   </body>
