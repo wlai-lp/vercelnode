@@ -46,3 +46,38 @@ No framework detected. Default Project Settings:
 # use `vercel dev` to dev locally
 - the endpoint is localhost:3000/api/hello
 - use vercel web to create environment var and then in cli use `vercell env pull` to pull it locally for local dev
+
+
+# tech stack
+- use clark to auth application/endpoints
+    - see api/demo/auth.ts for template code
+    - every endpoint should have clerk window auth to verify session (TODO)
+- use vercel node serverless to create endpoints for the applications
+    - this can also return html page for the app
+- use htmx to invoke api endpoings
+- TODO: use convex to do DB
+    - user session mapping, source/destination
+    - logging
+    - clone mapping, 
+
+# LP deveopment
+- basically reference contact center management api and implement all end points
+`https://developers.liveperson.com/agent-groups-api-overview.html`
+
+## cloning flow
+- user login to source
+- app returns LP auth token and sourceID as cookie, and html elements to loging to dest
+- user login to destination 
+- app returns LP auth token and destID as cookie, and redirects to the compare page
+- compare page displays all the contact center elements
+- allows user to clone components
+
+# App features nice to have
+- user portal
+- track of user cloning requests
+- log cloning calls for easier trouble shooting
+    - db, log url and payload info, completed flag
+- dashboard to report status
+- realtime reactive feedback to update user on status using convext to log activities
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Add a <div> element with id="sign-in" to your HTML -->
+<div id="sign-in">sign in div</div>
+ 
+<script>
+  const script = document.createElement('script');
+  // Set your Clerk publishable key
+  script.setAttribute('data-clerk-publishable-key', `pk_test_cHJvbXB0LWhvZy02MS5jbGVyay5hY2NvdW50cy5kZXYk`);
+  script.async = true;
+  script.src = `https://prompt-hog-61.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js`;
+ 
+  script.addEventListener('load', async function () {
+    await window.Clerk.load();
+ 
+    const signInComponent = document.querySelector('#sign-in');
+ 
+    window.Clerk.openSignIn(signInComponent, {
+      appearance: {
+        baseTheme: "dark"
+      }
+    });
+  });
+  document.body.appendChild(script);
+</script>
+</body>
+</html>
