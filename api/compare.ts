@@ -15,7 +15,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
     // TODO: error handling site cookies param
 
   const htmlContentTemplate = `
-<html data-theme="synthwave">
+<html data-theme="{DAISYUI_THEME}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,7 +56,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <div class="collapse collapse-arrow join-item border border-base-300">
           <input type="radio" name="my-accordion-4" />
           <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
+            Workhours
           </div>
           <div class="collapse-content">
             <p>hello</p>
@@ -65,7 +65,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <div class="collapse collapse-arrow join-item border border-base-300">
           <input type="radio" name="my-accordion-4" />
           <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
+            Agents
           </div>
           <div class="collapse-content">
             <p>hello</p>
@@ -102,7 +102,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <div class="collapse collapse-arrow join-item border border-base-300">
           <input type="radio" name="my-accordion-5" />
           <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
+            Workhours
           </div>
           <div class="collapse-content">
             <p>hello</p>
@@ -111,7 +111,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
         <div class="collapse collapse-arrow join-item border border-base-300">
           <input type="radio" name="my-accordion-5" />
           <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
+            Agents
           </div>
           <div class="collapse-content">
             <p>hello</p>

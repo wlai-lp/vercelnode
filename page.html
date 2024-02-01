@@ -1,4 +1,4 @@
-<html data-theme="light">
+<html data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,95 +10,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <title>Compare 2 LP Sites</title>
+    <title>LP Site Cloning Tool</title>
   </head>
 
   <body>
-    <div class="grid grid-cols-2 gap-4 p-8">
-      <!-- Panel 1 -->
-      <div class="join join-vertical w-full">
-        <h2 class="text-lg font-semibold mb-2">
-          Source SiteID : {lpSourceSite}
-        </h2>
-        <div class="collapse collapse-arrow join-item border border-base-300">
-          <input type="radio" name="my-accordion-4" checked="checked" />
-          <div class="collapse-title text-xl font-medium">Skills</div>
-          <div class="collapse-content">
-            <div class="overflow-x-auto">
-              <div hx-get="/api/skill/getskills?param=source" hx-trigger="load">
-                <img
-                  alt="Result loading..."
-                  class="htmx-indicator"
-                  width="150"
-                  src="https://htmx.org/img/bars.svg"
-                />
-              </div>
+    <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-bold">Login to LP site</h1>
+          <p class="py-6">Please make sure the user had admin right.</p>
+        </div>
+        <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <form class="card-body" action="#" method="POST">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Soure Site ID</span>
+              </label>
+              <input type="text" id="siteid" name="siteid" placeholder="source site id" class="input input-bordered" required />
             </div>
-          </div>
-        </div>
-        <div class="collapse collapse-arrow join-item border border-base-300">
-          <input type="radio" name="my-accordion-4" />
-          <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-          </div>
-          <div class="collapse-content">
-            <p>hello</p>
-          </div>
-        </div>
-        <div class="collapse collapse-arrow join-item border border-base-300">
-          <input type="radio" name="my-accordion-4" />
-          <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-          </div>
-          <div class="collapse-content">
-            <p>hello</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- panel 2 -->
-      <div class="join join-vertical w-full">
-        <h2 class="text-lg font-semibold mb-2">
-          Source SiteID : {lpSourceSite}
-        </h2>
-        <div class="collapse collapse-arrow join-item border border-base-300">
-          <input type="radio" name="my-accordion-5" checked="checked" />
-          <div class="collapse-title text-xl font-medium">Skills</div>
-          <div class="collapse-content">
-            <div class="overflow-x-auto">
-              <div
-                hx-trigger="myEvent from:body"
-                hx-get="/api/skill/getskills?param=dest"
-              >
-                <div hx-get="/api/skill/getskills?param=dest" hx-trigger="load">
-                  <img
-                    alt="Result loading..."
-                    class="htmx-indicator"
-                    width="150"
-                    src="https://htmx.org/img/bars.svg"
-                  />
-                </div>
-              </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">User Name</span>
+              </label>
+              <input type="text" id="username" name="username" placeholder="user name" class="input input-bordered" required />
             </div>
-          </div>
-        </div>
-        <div class="collapse collapse-arrow join-item border border-base-300">
-          <input type="radio" name="my-accordion-5" />
-          <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-          </div>
-          <div class="collapse-content">
-            <p>hello</p>
-          </div>
-        </div>
-        <div class="collapse collapse-arrow join-item border border-base-300">
-          <input type="radio" name="my-accordion-5" />
-          <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-          </div>
-          <div class="collapse-content">
-            <p>hello</p>
-          </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Password</span>
+              </label>
+              <input type="password" id="password" name="password" placeholder="password" class="input input-bordered" required />              
+            </div>
+            <div class="form-control mt-6">
+              <button type="submit" class="btn btn-primary"  hx-post="/api/login" hx-swap="outerHTML">Login to Source Site</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
