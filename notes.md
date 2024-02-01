@@ -29,3 +29,17 @@ const age = 30;
 
 const messageTemplate = "Hello, my name is {name} and I am {age} years old.";
 const message = messageTemplate.replace("{name}", name).replace("{age}", age);
+
+
+
+# HTMX ref
+## use header to trigger another endpoint on 
+- server respond trigger event
+res.setHeader('HX-Trigger', 'myEvent');
+
+- client element has trigger, the bubble up to body
+hx-trigger="myEvent from:body"
+
+
+## use header to redirect
+res.setHeader('HX-Redirect', compareUrl);
