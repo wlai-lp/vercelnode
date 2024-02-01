@@ -22,8 +22,8 @@ export default ({ query }: VercelRequest, res: VercelResponse) => {
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="text-center lg:text-left">
-          <h1 class="text-5xl font-bold">Login to LP site</h1>
-          <p class="py-6">Please make sure the user had admin right.</p>
+          <h1 class="text-5xl font-bold">Login</h1>
+          <p class="py-6">Please make sure the user has admin right.</p>
         </div>
         <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form class="card-body" action="#" method="POST">

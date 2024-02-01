@@ -81,3 +81,14 @@ No framework detected. Default Project Settings:
 - realtime reactive feedback to update user on status using convext to log activities
 
 
+# HTMX ref
+## use header to trigger another endpoint on 
+- server respond trigger event
+res.setHeader('HX-Trigger', 'myEvent');
+
+- client element has trigger, the bubble up to body
+hx-trigger="myEvent from:body"
+
+
+## use header to redirect
+res.setHeader('HX-Redirect', compareUrl);

@@ -12,26 +12,17 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   let htmlContent = "";
 
-  const htmlContent_success = `
-  <button hx-post="/api/logindest" hx-swap="outerHTML" 
-          class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-          Login to Destination Site
-  </button>
+  const htmlContent_success = `  
+  <button type="submit" class="btn btn-primary"  hx-post="/api/logindest" hx-swap="outerHTML">Login to Destination Site</button>
 `;
 
 const htmlContent_failed = `
-  <button hx-post="/api/login" hx-swap="outerHTML" 
-          class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-          Login to Source Site
-  </button>
-  <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
-    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-    </svg>
-    <span class="sr-only">Info</span>
-    <div>
-      <span class="font-medium">Login failed!</span> Please try submitting again.
-    </div>
+  
+  <button type="submit" class="btn btn-primary"  hx-post="/api/login" hx-swap="outerHTML">Login to Source Site</button>
+  
+  <div role="alert" class="alert alert-info mt-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    <span>Login failed.</span>
   </div>
 `;
   // login and get auth token
