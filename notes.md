@@ -43,3 +43,16 @@ hx-trigger="myEvent from:body"
 
 ## use header to redirect
 res.setHeader('HX-Redirect', compareUrl);
+
+## CROS
+'use strict';
+
+module.exports.hello = async event => {
+  return {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: // ...
+  };
+};

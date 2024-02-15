@@ -74,7 +74,8 @@ This allows me to try different services and technologies.  I would try to incor
     - every endpoint should have clerk window auth to verify session (TODO)
 - use vercel node serverless to create endpoints for the applications
     - this can also return html page for the app
-- use htmx to invoke api endpoings
+- use htmx to invoke api endpoints
+- use alpine js to do front end stuff (WIP, if need to)
 - use tailwind + daisyui for presentation layer
 - plain old html with no build tool ()
 - TODO: use convex to do DB
