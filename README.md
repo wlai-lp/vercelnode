@@ -54,6 +54,8 @@ sample output
 - the endpoint is localhost:3000/api/hello
 - use vercel web to create environment var and then in cli use `vercell env pull` to pull it locally for local dev
 
+process.env.API_URL;
+
 # Test hello serverless function
 > The actual api end point is /api/hello
 
